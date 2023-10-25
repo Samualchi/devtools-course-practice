@@ -28,15 +28,15 @@ TEST(Melnik_D_ComplexNumberTest, Multiply) {
 
   ComplexNumber expr = a * b;
 
-  EXPECT_EQ(expr, ComplexNumber(3, 34.5));
+  EXPECT_EQ(expr, ComplexNumber(3.0, 34.5));
 }
 
-TEST(Melnik_D_ComplexNumberTest, equals)
+TEST(Melnik_D_ComplexNumberTest, Min)
 {
-  ComplexNumber a(2.0, 8.0);
-  ComplexNumber b(3.0, 1.0);
+  ComplexNumber a(7.0, 4.0);
+  ComplexNumber b(6.0, 2.0);
 
-  bool a_E_b = a!=b ;
+  ComplexNumber expr = a - b;
 
-  ASSERT_TRUE(a_E_b);
+  EXPECT_EQ(expr, ComplexNumber(1.0, 2.0));
 }
