@@ -108,7 +108,7 @@ TEST(Melnik_D_ComplexNumberTest, Mult_Min) {
   double re = re1 - re2 - re3;
   double im = im1 - im2 - im3;
 
-  ComplexNumber expr = a - b- c;
+  ComplexNumber expr = a - b - c;
 
   EXPECT_EQ(re, expr.getRe());
   EXPECT_EQ(im, expr.getIm());
