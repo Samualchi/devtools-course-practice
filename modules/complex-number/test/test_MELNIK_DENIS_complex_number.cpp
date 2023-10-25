@@ -75,3 +75,41 @@ TEST(Melnik_D_ComplexNumberTest, Min) {
   EXPECT_EQ(re, expr.getRe());
   EXPECT_EQ(im, expr.getIm());
 }
+
+TEST(Melnik_D_ComplexNumberTest, Equal) {
+  double re1 = 4.0;
+  double re2 = 3.0;
+  double im1 = 2.0;
+  double im2 = 7.0;
+
+  ComplexNumber a(re1, im1);
+  ComplexNumber b(re2, im2);
+
+  a = b;
+
+  EXPECT_EQ(a.getRe(), b.getRe());
+  EXPECT_EQ(a.getIm(), b.getIm());
+  EXPECT_EQ(a.getRe(), 3.0);
+  EXPECT_EQ(a.getIm(), 7.0);
+}
+
+TEST(Melnik_D_ComplexNumberTest, Mult_Min) {
+  double re1 = 7.0;
+  double re2 = 2.0;
+  double im1 = 6.0;
+  double im2 = 2.0;
+  double re3 = 3.0;
+  double im3 = 1.0;
+
+  ComplexNumber a(re1, im1);
+  ComplexNumber b(re2, im2);
+  ComplexNumber c(re3, im3);
+
+  double re = re1 - re2 - re3;
+  double im = im1 - im2 - im3;
+
+  ComplexNumber expr = a - b- c;
+
+  EXPECT_EQ(re, expr.getRe());
+  EXPECT_EQ(im, expr.getIm());
+}
