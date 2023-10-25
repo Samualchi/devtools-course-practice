@@ -5,38 +5,73 @@
 #include "include/complex_number.h"
 
 TEST(Melnik_D_ComplexNumberTest, Sum) {
-  ComplexNumber a(6.0, 2.5);
-  ComplexNumber b(1.2, 4.6);
+  double re1 = 6.0;
+  double re2 = 1.2;
+  double im1 = 2.5;
+  double im2 = 4.6;
+
+  ComplexNumber a(re1, im1);
+  ComplexNumber b(re2, im2);
+
+  double re = re1 + re2;
+  double im = im1 + im2;
 
   ComplexNumber expr = a + b;
 
-  EXPECT_EQ(expr, ComplexNumber(7.2, 7.1));
+  EXPECT_EQ(re, expr.getRe());
+  EXPECT_EQ(im, expr.getIm());
 }
 
 TEST(Melnik_D_ComplexNumberTest, Div) {
-  ComplexNumber a(4.0, 2.0);
-  ComplexNumber b(2.0, 2.0);
+  double re1 = 4.0;
+  double re2 = 1.0;
+  double im1 = 2.0;
+  double im2 = 1.0;
 
-  ComplexNumber expr = a/b;
+  ComplexNumber a(re1, im1);
+  ComplexNumber b(re2, im2);
 
-  EXPECT_EQ(expr, ComplexNumber(1.5, 0.5));
+  double re = (re1 * re2 + im1 * im2) / (pow(re2, 2) + pow(im2, 2));
+  double im = (re2 * im1 - re1 * im2) / (pow(re2, 2) + pow(im2, 2));
+
+  ComplexNumber expr = a / b;
+
+  EXPECT_EQ(re, expr.getRe());
+  EXPECT_EQ(im, expr.getIm());
 }
 
-TEST(Melnik_D_ComplexNumberTest, Multiply) {
-  ComplexNumber a(3.0, 2.0);
-  ComplexNumber b(6.0, 7.5);
+TEST(Melnik_D_ComplexNumberTest, Mult) {
+  double re1 = 2.0;
+  double re2 = 2.0;
+  double im1 = 3.0;
+  double im2 = 2.0;
+
+  ComplexNumber a(re1, im1);
+  ComplexNumber b(re2, im2);
+
+  double re = re1 * re2 - im1 * im2;
+  double im = re1 * im2 + re2 * im1;
 
   ComplexNumber expr = a * b;
 
-  EXPECT_EQ(expr, ComplexNumber(3.0, 34.5));
+  EXPECT_EQ(re, expr.getRe());
+  EXPECT_EQ(im, expr.getIm());
 }
 
-TEST(Melnik_D_ComplexNumberTest, Min)
-{
-  ComplexNumber a(7.0, 4.0);
-  ComplexNumber b(6.0, 2.0);
+TEST(Melnik_D_ComplexNumberTest, Min) {
+  double re1 = 5.0;
+  double re2 = 2.0;
+  double im1 = 3.0;
+  double im2 = 1.0;
+
+  ComplexNumber a(re1, im1);
+  ComplexNumber b(re2, im2);
+
+  double re = re1 - re2;
+  double im = im1 - im2;
 
   ComplexNumber expr = a - b;
 
-  EXPECT_EQ(expr, ComplexNumber(1.0, 2.0));
+  EXPECT_EQ(re, expr.getRe());
+  EXPECT_EQ(im, expr.getIm());
 }
