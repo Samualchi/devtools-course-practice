@@ -8,7 +8,7 @@ TEST(Melnik_D_ComplexNumberTest, Sum) {
   ComplexNumber a(6.0, 2.5);
   ComplexNumber b(1.2, 4.6);
 
-  ComplexNumber expr = a - b;
+  ComplexNumber expr = a + b;
 
   EXPECT_EQ(expr, ComplexNumber(7.2, 7.1));
 }
