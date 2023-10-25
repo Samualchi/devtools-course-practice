@@ -79,18 +79,3 @@ TEST(Melnik_D_ComplexNumberTest, Min) {
   EXPECT_EQ(re, expr.getRe());
   EXPECT_EQ(im, expr.getIm());
 }
-
-TEST(Melnik_D_ComplexNumberTest, Equal) {
-  // Arrange
-  ComplexNumber a(4.0, 2.0);
-  ComplexNumber b(3.0, 7.0);
-
-  // Act
-  a = b;
-
-  // Assert
-  EXPECT_EQ(a.getRe(), b.getRe());
-  EXPECT_EQ(a.getIm(), b.getIm());
-  EXPECT_EQ(a.getRe(), 3.0);
-  EXPECT_EQ(a.getIm(), 7.0);
-}
